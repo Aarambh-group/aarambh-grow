@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { ReactLenis } from "lenis/react";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,7 +23,20 @@ export default function RootLayout({ children }) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        {/* Smooth Slow-Motion Scroll Wrapper */}
+        <ReactLenis
+          root
+          options={{
+            lerp: 0.05, // Lower lerp values create smoother, heavier slow-mo momentum (default 0.1)
+            duration: 1.8, // Scroll transition duration in seconds
+            smoothWheel: true,
+            wheelMultiplier: 0.85, // Adjusts wheel scroll sensitivity
+          }}
+        >
+          {children}
+        </ReactLenis>
+      </body>
     </html>
   );
 }

@@ -43,7 +43,7 @@ export default function Preloader() {
 
     return (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white overflow-hidden">
-            
+
             {/* Inline styles for custom keyframe animations and masks */}
             <style>{`
                 @keyframes ag-spin {
@@ -92,22 +92,21 @@ export default function Preloader() {
 
             {/* Main Content Wrapper — The Zoom In/Out Effect */}
             <div
-                className={`flex flex-col items-center transition-all duration-700 ease-out ${
-                    phase === "entering"
+                className={`flex flex-col items-center transition-all duration-700 ease-out ${phase === "entering"
                         ? "scale-[0.6] opacity-0 blur-[10px]"
                         : phase === "loading"
-                        ? "scale-100 opacity-100 blur-0"
-                        : "scale-110 opacity-0 blur-[6px]"
-                }`}
+                            ? "scale-100 opacity-100 blur-0"
+                            : "scale-110 opacity-0 blur-[6px]"
+                    }`}
             >
                 {/* Logo & Spinning Chakra Ring Container */}
                 <div className="relative w-28 h-28 flex items-center justify-center mb-8">
                     {/* Spinning Tricolor Ring */}
                     <div className="absolute inset-0 rounded-full ag-spinner-ring"></div>
-                    
+
                     {/* Inner White Circle to create the ring effect */}
                     <div className="absolute inset-[6px] rounded-full bg-white shadow-sm"></div>
-                    
+
                     {/* Logo Image */}
                     <Image
                         src="/images/favicon1.png" // Make sure this path is correct in your public folder
@@ -120,9 +119,9 @@ export default function Preloader() {
                 </div>
 
                 {/* Company Name — Exact Logo Style Typography */}
-                <div className="flex flex-col items-center">
+                <div className="flex flex-col items-start md:items-center text-left md:text-center">
                     <h1
-                        className="text-5xl md:text-6xl font-medium tracking-wide leading-none"
+                        className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-wide leading-none"
                         style={{
                             fontFamily: "'Cinzel', serif",
                             color: "#163A70", // Navy Blue
