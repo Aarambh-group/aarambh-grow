@@ -38,7 +38,6 @@ export default function ServicesSection() {
     "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&auto=format&fit=crop&q=80",
   ];
 
-  // Fluid motion physics
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -117,7 +116,7 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        {/* Filter Navigation Tabs (No Scroll - Flex Wrap for Mobile & Desktop) */}
+        {/* Filter Navigation Tabs */}
         <motion.div variants={fadeUpVariants} className="mb-8 sm:mb-10 w-full">
           <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
             {filterTabs.map((tab) => {

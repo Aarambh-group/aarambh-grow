@@ -13,12 +13,12 @@ const NAV_LINKS = [
         label: "Services",
         href: "/services",
         children: [
-            { label: "Business Registration", href: "/services/business-registration" },
-            { label: "Certification Services", href: "/services/certification-services" },
-            { label: "Financial Assistance", href: "/services/financial-assistance" },
-            { label: "Government Schemes", href: "/services/government-schemes" },
-            { label: "Digital Solutions", href: "/services/digital-solutions" },
-            { label: "Compliance Services", href: "/services/compliance-services" },
+            { label: "Business Registration", href: "/services" },
+            { label: "Certification Services", href: "/services" },
+            { label: "Financial Assistance", href: "/services" },
+            { label: "Government Schemes", href: "/services" },
+            { label: "Digital Solutions", href: "/services" },
+            { label: "Compliance Services", href: "/services" },
         ],
     },
     { label: "Contact Us", href: "/contact" },
@@ -35,7 +35,7 @@ function Logo() {
             >
                 <Image
                     src="/images/home-logo.png"
-                    alt="Aarambh Grow"
+                    alt="Aarambh Grow Group of Companies"
                     width={130}
                     height={30}
                     priority

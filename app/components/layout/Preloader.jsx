@@ -8,34 +8,41 @@ export default function Preloader() {
     const [phase, setPhase] = useState("entering");
 
     useEffect(() => {
-        // Phase 1: Zoom In
-        const t1 = setTimeout(() => setPhase("loading"), 800);
+        let animationFrameId;
 
-        // Phase 2: Progress Counter
-        const duration = 1600;
-        const start = performance.now();
+        // Phase 1: Zoom In & Start Counter after initial delay
+        const t1 = setTimeout(() => {
+            setPhase("loading");
 
-        function tick(now) {
-            const elapsed = now - start;
-            const raw = Math.min(elapsed / duration, 1);
-            const eased = 1 - Math.pow(1 - raw, 2);
-            setProgress(Math.round(eased * 100));
+            const duration = 1800; // Duration of counting in ms
+            let startTime = null;
 
-            if (raw < 1) {
-                requestAnimationFrame(tick);
+            function tick(now) {
+                if (!startTime) startTime = now;
+                const elapsed = now - startTime;
+                const raw = Math.min(elapsed / duration, 1);
+
+                // Calculate current progress (0 to 100)
+                const currentProgress = Math.floor(raw * 100);
+                setProgress(currentProgress);
+
+                if (raw < 1) {
+                    animationFrameId = requestAnimationFrame(tick);
+                }
             }
-        }
-        const raf = setTimeout(() => requestAnimationFrame(tick), 800); // Delay start to match phase
 
-        // Phase 3: Zoom Out & Exit
-        const t2 = setTimeout(() => setPhase("exiting"), 2500);
-        const t3 = setTimeout(() => setPhase("done"), 3300);
+            animationFrameId = requestAnimationFrame(tick);
+        }, 800);
+
+        // Phase 2: Exit animations
+        const t2 = setTimeout(() => setPhase("exiting"), 2800);
+        const t3 = setTimeout(() => setPhase("done"), 3500);
 
         return () => {
             clearTimeout(t1);
-            clearTimeout(raf);
             clearTimeout(t2);
             clearTimeout(t3);
+            if (animationFrameId) cancelAnimationFrame(animationFrameId);
         };
     }, []);
 
@@ -43,7 +50,6 @@ export default function Preloader() {
 
     return (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-white overflow-hidden">
-
             {/* Inline styles for custom keyframe animations and masks */}
             <style>{`
                 @keyframes ag-spin {
@@ -86,30 +92,26 @@ export default function Preloader() {
                 style={{
                     background: "radial-gradient(circle, rgba(22,58,112,0.05) 0%, transparent 70%)",
                     filter: "blur(40px)",
-                    animation: "ag-glow 3s ease-in-out infinite"
+                    animation: "ag-glow 3s ease-in-out infinite",
                 }}
             />
 
-            {/* Main Content Wrapper — The Zoom In/Out Effect */}
+            {/* Main Content Wrapper */}
             <div
-                className={`flex flex-col items-center transition-all duration-700 ease-out ${phase === "entering"
+                className={`flex flex-col items-center transition-all duration-700 ease-out ${
+                    phase === "entering"
                         ? "scale-[0.6] opacity-0 blur-[10px]"
                         : phase === "loading"
-                            ? "scale-100 opacity-100 blur-0"
-                            : "scale-110 opacity-0 blur-[6px]"
-                    }`}
+                        ? "scale-100 opacity-100 blur-0"
+                        : "scale-110 opacity-0 blur-[6px]"
+                }`}
             >
                 {/* Logo & Spinning Chakra Ring Container */}
                 <div className="relative w-28 h-28 flex items-center justify-center mb-8">
-                    {/* Spinning Tricolor Ring */}
                     <div className="absolute inset-0 rounded-full ag-spinner-ring"></div>
-
-                    {/* Inner White Circle to create the ring effect */}
                     <div className="absolute inset-[6px] rounded-full bg-white shadow-sm"></div>
-
-                    {/* Logo Image */}
                     <Image
-                        src="/images/favicon1.png" // Make sure this path is correct in your public folder
+                        src="/images/favicon1.png"
                         alt="AarambhGrow"
                         width={100}
                         height={100}
@@ -118,13 +120,13 @@ export default function Preloader() {
                     />
                 </div>
 
-                {/* Company Name — Exact Logo Style Typography */}
+                {/* Company Name */}
                 <div className="flex flex-col items-start md:items-center text-left md:text-center">
                     <h1
                         className="text-3xl sm:text-4xl md:text-6xl font-medium tracking-wide leading-none"
                         style={{
                             fontFamily: "'Cinzel', serif",
-                            color: "#163A70", // Navy Blue
+                            color: "#163A70",
                             letterSpacing: "0.05em",
                         }}
                     >
@@ -135,7 +137,7 @@ export default function Preloader() {
                         className="mt-2 text-lg md:text-xl leading-none"
                         style={{
                             fontFamily: "'Cinzel', serif",
-                            color: "#7D7768", // Keeping your existing elegant gold/beige
+                            color: "#7D7768",
                             letterSpacing: "0.18em",
                         }}
                     >
@@ -143,21 +145,24 @@ export default function Preloader() {
                     </p>
                 </div>
 
-                {/* Progress Bar — Orange -> White -> Green Gradient */}
+                {/* Progress Bar */}
                 <div className="w-48 h-[4px] bg-slate-100 rounded-full mt-8 overflow-hidden relative">
                     <div
                         className="h-full rounded-full transition-all duration-100 ease-out"
                         style={{
                             width: `${phase === "entering" ? 0 : progress}%`,
                             background: "linear-gradient(to right, #f97316, #ffffff, #22c55e)",
-                            boxShadow: "0 0 10px rgba(34, 197, 94, 0.4)", // Subtle green glow at the end of the bar
+                            boxShadow: "0 0 10px rgba(34, 197, 94, 0.4)",
                         }}
                     />
                 </div>
 
-                {/* Percentage Counter & Status Text */}
+                {/* Percentage Counter */}
                 <div className="flex flex-col items-center mt-4">
-                    <p className="text-[10px] font-medium tracking-[0.25em] text-slate-400 uppercase mb-1" style={{ fontFamily: "'Montserrat', sans-serif" }}>
+                    <p
+                        className="text-[10px] font-medium tracking-[0.25em] text-slate-400 uppercase mb-1"
+                        style={{ fontFamily: "'Montserrat', sans-serif" }}
+                    >
                         Initiating Growth
                     </p>
                     <p
@@ -169,7 +174,7 @@ export default function Preloader() {
                 </div>
             </div>
 
-            {/* Google Font Injection - Added Cinzel to the link! */}
+            {/* Google Font Injection */}
             <link
                 href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap"
                 rel="stylesheet"

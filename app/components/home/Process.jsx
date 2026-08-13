@@ -20,75 +20,73 @@ export default function ProcessSection() {
     {
       id: "01",
       badge: "PHASE 01",
-      title: "Understand Your Business",
-      subtitle: "Discovery & Operational Context",
+      title: "Discovery & Analysis",
+      subtitle: "Business & Growth Evaluation",
       icon: Search,
       accent: "#f26522",
       description:
-        "We begin by learning about your business goals, challenges, and future plans to map regulatory frameworks and eliminate friction from day one.",
+        "We evaluate your business model, operational roadblocks, and growth targets.",
       deliverables: [
-        "Business Goals & Context Mapping",
-        "Compliance & Regulatory Gap Assessment",
-        "Operational Bottleneck Identification",
+        "Business Model Evaluation",
+        "Operational Roadblock Assessment",
+        "Growth Target Mapping",
       ],
-      metric: "100% Structural Clarity",
+      metric: "100% Operational Clarity",
     },
     {
       id: "02",
       badge: "PHASE 02",
-      title: "Develop the Right Strategy",
-      subtitle: "Custom Compliance Architecture",
+      title: "Tailored Strategy",
+      subtitle: "Custom Scaling Roadmap",
       icon: Compass,
       accent: "#157327",
       description:
-        "Our experts recommend the most effective solutions based on your specific requirements, crafting a cost-effective roadmap for speed.",
+        "Our specialists design a clear roadmap tailored to your compliance and scaling requirements.",
       deliverables: [
-        "Custom Legal & Regulatory Roadmap",
-        "Resource & Cost Optimization Plan",
-        "Milestone-Driven Execution Timeline",
+        "Tailored Compliance Framework",
+        "Custom Scaling Strategy",
+        "Regulatory Milestone Plan",
       ],
-      metric: "Zero Friction Advisory",
+      metric: "Targeted Roadmap",
     },
     {
       id: "03",
       badge: "PHASE 03",
-      title: "Execute with Precision",
-      subtitle: "Rapid Implementation & Filing",
+      title: "Precision Execution",
+      subtitle: "Filing & Implementation",
       icon: Zap,
       accent: "#f26522",
       description:
-        "From complex documentation to government authority filings, we manage every single step professionally with total accuracy.",
+        "We handle filings, documentation, digital implementations, and registrations with speed and accuracy.",
       deliverables: [
-        "Precision Legal Drafting & Verification",
-        "Authority & Regulatory Submissions",
-        "Real-Time Filing Status Transparency",
+        "Rapid Documentation & Filings",
+        "Digital System Implementations",
+        "Precision Regulatory Registrations",
       ],
-      metric: "Fast-Track Approval",
+      metric: "Speed & Accuracy",
     },
     {
       id: "04",
       badge: "PHASE 04",
-      title: "Ongoing Business Support",
-      subtitle: "Proactive Long-Term Scale",
+      title: "Continuous Support",
+      subtitle: "Ongoing Advisory & Scale",
       icon: ShieldCheck,
       accent: "#157327",
       description:
-        "Our relationship doesn't end after delivery. We continue supporting your business as it grows with annual updates and guidance.",
+        "We deliver ongoing compliance management and strategic advisory as your business scales.",
       deliverables: [
-        "Annual Compliance Advisory",
-        "Dedicated Account Management",
-        "Continuous Regulatory Monitoring",
+        "Ongoing Compliance Management",
+        "Strategic Scaling Advisory",
+        "Proactive Growth Guidance",
       ],
-      metric: "Long-Term Security",
+      metric: "Long-Term Scale",
     },
   ];
 
   const current = steps[activeStep] || steps[0];
 
   return (
-    <section 
-      className="relative w-full bg-[#f8fafc] py-12 sm:py-16 lg:py-20 font-sans select-none overflow-hidden text-[#0f172a]"
-    >
+    <section className="relative w-full bg-[#f8fafc] py-12 sm:py-16 lg:py-16 font-sans select-none overflow-hidden text-[#0f172a]">
       {/* Subtle Light Geometric Accent Glows */}
       <div className="absolute top-0 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-[#f26522]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-[#157327]/5 rounded-full blur-3xl pointer-events-none" />
@@ -111,9 +109,8 @@ export default function ProcessSection() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
         {/* SECTION BADGE */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -136,26 +133,26 @@ export default function ProcessSection() {
           transition={{ duration: 0.5, delay: 0.1 }}
           className="text-center max-w-3xl mx-auto space-y-2 sm:space-y-3 mb-8 sm:mb-12"
         >
-          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0f2a4a] leading-tight tracking-tight">
-            Simple Process. Powerful Results.
+          <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0f2a4a] leading-tight tracking-tight transition-colors duration-300 hover:text-[#f26522]">
+            Simple Process & Powerful Results
           </h2>
           <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal max-w-xl mx-auto">
             An engineered four-stage execution rail built to navigate regulatory complexity with absolute clarity.
           </p>
         </motion.div>
 
-        {/* TIMELINE INTERACTIVE SELECTOR GRID (Optimized for Mobile & Touch) */}
+        {/* TIMELINE INTERACTIVE SELECTOR GRID */}
         <div className="mb-8 sm:mb-10 relative">
           {/* Continuous Light Rail Line (Desktop) */}
           <div className="hidden lg:block absolute top-1/2 left-8 right-8 h-1 bg-slate-200/80 -translate-y-1/2 z-0 rounded-full" />
 
-          <motion.div 
+          <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
             variants={{
               hidden: { opacity: 0 },
-              visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+              visible: { opacity: 1, transition: { staggerChildren: 0.1 } },
             }}
             className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 relative z-10"
           >
@@ -168,13 +165,12 @@ export default function ProcessSection() {
                   key={item.id}
                   variants={{
                     hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+                    visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
                   }}
                   whileHover={{ y: -2 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => setActiveStep(idx)}
                   onMouseEnter={() => {
-                    // Only apply hover effect on non-touch (desktop) screens
                     if (window.matchMedia("(hover: hover)").matches) {
                       setActiveStep(idx);
                     }
@@ -210,9 +206,9 @@ export default function ProcessSection() {
                     <span className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
                       {item.badge}
                     </span>
-                    <h4 className="text-xs sm:text-sm font-black text-[#0f2a4a] truncate">
+                    <h3 className="text-xs sm:text-sm font-black text-[#0f2a4a] truncate">
                       {item.title}
-                    </h4>
+                    </h3>
                   </div>
                 </motion.button>
               );
@@ -222,7 +218,6 @@ export default function ProcessSection() {
 
         {/* MAIN FEATURE DISPLAY PANEL */}
         <div className="bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
-          
           {/* Dynamic Ambient Corner Glow */}
           <div
             className="absolute -top-24 -right-24 w-72 sm:w-80 h-72 sm:h-80 rounded-full blur-3xl opacity-10 pointer-events-none transition-all duration-500"
@@ -238,7 +233,6 @@ export default function ProcessSection() {
               transition={{ duration: 0.35, ease: "easeInOut" }}
               className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center relative z-10"
             >
-              
               {/* LEFT: TEXT CONTENT & STRATEGY */}
               <div className="lg:col-span-7 space-y-4 sm:space-y-5">
                 <div className="flex items-center gap-2">
@@ -271,7 +265,6 @@ export default function ProcessSection() {
               {/* RIGHT: DELIVERABLE CHECKLIST CARD */}
               <div className="lg:col-span-5">
                 <div className="bg-[#f8fafc] border border-slate-200/80 rounded-xl p-4 sm:p-6 space-y-3">
-                  
                   <div className="flex items-center justify-between border-b border-slate-200/60 pb-2.5 sm:pb-3">
                     <span className="text-xs font-black uppercase tracking-wider text-[#0f2a4a]">
                       Phase Deliverables
@@ -286,7 +279,7 @@ export default function ProcessSection() {
                         initial={{ opacity: 0, x: 10 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.3, delay: idx * 0.08 }}
-                        className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-lg bg-white border border-slate-200/60 shadow-2xs"
+                        className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-lg bg-white border border-slate-200/60 shadow-xs"
                       >
                         <CheckCircle2
                           className="w-4 h-4 shrink-0"
@@ -302,18 +295,18 @@ export default function ProcessSection() {
                   {/* BOTTOM STEP COUNTER */}
                   <div className="pt-2 flex items-center justify-between text-[10px] sm:text-[11px] font-bold text-slate-400">
                     <span>Methodology Execution</span>
-                    <span className="text-[#0f2a4a] font-black">Step {current.id} of 04</span>
+                    <span className="text-[#0f2a4a] font-black">
+                      Step {current.id} of 04
+                    </span>
                   </div>
-
                 </div>
               </div>
-
             </motion.div>
           </AnimatePresence>
         </div>
 
         {/* STATIC FOOTER */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 10 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -325,7 +318,6 @@ export default function ProcessSection() {
             <span>Institutional Operational Standard</span>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

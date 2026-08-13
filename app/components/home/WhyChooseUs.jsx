@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import Link from "next/link";
 import { motion } from "framer-motion";
 import {
     Users,
@@ -13,10 +12,12 @@ import {
 } from "lucide-react";
 
 const features = [
-    "Expertise You Can Trust",
-    "End-to-End Support for Every Business",
-    "Transparent Process with No Hidden Costs",
-    "Dedicated Support at Every Step",
+    "End-to-End Solutions Under One Roof",
+    "Expert Advisory Across Legal, Tax, & Strategy",
+    "Swift Documentation & Guaranteed Compliance",
+    "Transparent Process with No Hidden Fees",
+    "Scalable Strategies Tailored to Your Business Model",
+    "Dedicated Account Manager & Ongoing Support",
 ];
 
 const stats = [
@@ -96,13 +97,13 @@ export default function WhyChooseUs() {
                         className="lg:col-span-7 space-y-2 sm:space-y-3 text-center lg:text-left"
                     >
                         <h2 className="text-[20px] sm:text-[26px] lg:text-[30px] font-extrabold font-heading text-[#0F2A4A] leading-tight">
-                            We Don’t Just Provide Services. <br className="hidden sm:inline" />
-                            We Build{" "}
-                            <span className="text-[#F26522]">Growth Engines.</span>
+                            Built for Confidence,<br className="hidden sm:inline" />
+                            Speed,{" "}
+                            <span className="text-[#F26522]">and Growth</span>
                         </h2>
 
                         <p className="text-[11px] sm:text-[12px] lg:text-[13px] font-normal text-[#64748B] leading-snug max-w-lg mx-auto lg:mx-0">
-                            We simplify your business journey with expert guidance, transparent process and technology-driven solutions.
+                            We simplify your business journey with expert guidance, transparent processes, and technology-driven solutions.
                         </p>
 
                         {/* Feature Bullet Points */}

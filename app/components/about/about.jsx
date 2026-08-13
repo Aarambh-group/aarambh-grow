@@ -15,48 +15,48 @@ export default function AboutSection() {
 
     const pillars = [
         {
-            id: "mission",
-            phrase: "eliminating administrative friction",
-            title: "Our Purpose & Mission",
-            badge: "MISSION",
+            id: "purpose",
+            phrase: "empowering businesses to succeed",
+            title: "Our Purpose",
+            badge: "PURPOSE",
             icon: Target,
             accent: "#f26522",
             description:
-                "We engineer robust registration, compliance, and growth frameworks so founders can shift focus from administrative overhead to core market innovation.",
+                "We simplify complex business processes, eliminate unnecessary roadblocks, and provide strategic solutions that help businesses operate efficiently and unlock new opportunities.",
             highlights: [
-                "Structured Market Entry Strategies",
-                "Rapid Documentation & Regulatory Filing",
-                "Tailored Operational Architecture",
+                "Simplify complex business processes",
+                "Eliminate unnecessary roadblocks",
+                "Create roadmaps for long-term success",
             ],
         },
         {
             id: "vision",
-            phrase: "setting national standards",
-            title: "Our Long-Term Vision",
+            phrase: "creating lasting value",
+            title: "Our Vision",
             badge: "VISION",
             icon: Award,
             accent: "#157327",
             description:
-                "To establish India's most dependable digital-first consulting ecosystem—delivering institutional-grade advisory with zero friction.",
+                "To become a trusted business growth partner that empowers entrepreneurs and organizations with innovative, reliable, and strategic solutions that create lasting value.",
             highlights: [
-                "Digital-First Advisory Engine",
-                "Transparent Lifecycle Guidance",
-                "Pan-India Regulatory Reach",
+                "Trusted growth partner for entrepreneurs",
+                "Innovative and reliable solutions",
+                "Focus on creating sustainable value",
             ],
         },
         {
-            id: "commitment",
-            phrase: "100% regulatory compliance precision",
-            title: "Our Quality Commitment",
-            badge: "COMMITMENT",
+            id: "mission",
+            phrase: "delivering integrated solutions",
+            title: "Our Mission",
+            badge: "MISSION",
             icon: ShieldCheck,
             accent: "#f26522",
             description:
-                "Complete transparency with zero hidden costs, absolute compliance accuracy, and dedicated advisory at every single stage of growth.",
+                "To simplify the business journey by delivering integrated solutions across consulting, compliance, finance, branding, and operations while helping businesses build stronger foundations.",
             highlights: [
-                "Zero Hidden Cost Guarantee",
-                "Dedicated Account Management",
-                "Continuous Regulatory Updates",
+                "Integrated solutions across 5 core domains",
+                "Stronger foundational support for scaling",
+                "Focus on achieving sustainable growth",
             ],
         },
     ];
@@ -82,7 +82,7 @@ export default function AboutSection() {
                 </div>
             </div>
 
-            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-10">
 
                 {/* SECTION BADGE */}
                 <div className="flex justify-center mb-6">
@@ -100,45 +100,45 @@ export default function AboutSection() {
                     {/* LEFT: EDITORIAL INTERACTIVE TEXT */}
                     <div className="lg:col-span-7 space-y-4">
                         <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0f2a4a] leading-[1.2] tracking-tight">
-                            Architecting the Future of Business Growth through Precision.
+                            Empowering Businesses to Build, Grow, and Succeed.
                         </h2>
 
                         {/* Interactive Narrative Block */}
                         <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal">
-                            At <strong className="text-[#0f2a4a] font-bold">AarambhGrow</strong>, we believe corporate scale is achieved by{" "}
+                            Starting and growing a business requires more than completing registrations or managing compliance. At <strong className="text-[#0f2a4a] font-bold">AarambhGrow</strong>, we bring business consulting, financial advisory, legal compliance, certifications, branding, and operational support under one roof by{" "}
                             <button
                                 onMouseEnter={() => setActiveHighlight(0)}
                                 onClick={() => setActiveHighlight(0)}
-                                className={`inline-block font-bold px-1.5 py-0.5 rounded transition-all duration-200 border-b-2 cursor-pointer ${activeHighlight === 0
+                                className={`inline-block font-bold px-1.5 py-0.5 rounded-lm transition-all duration-200 border-b-2 cursor-pointer ${activeHighlight === 0
                                         ? "bg-[#fff5f0] text-[#f26522] border-[#f26522]"
                                         : "text-[#0f2a4a] border-slate-300 hover:border-[#f26522]"
                                     }`}
                             >
-                                eliminating administrative friction
-                            </button>{" "}
-                            from the start. We are dedicated to{" "}
+                                empowering businesses to succeed
+                            </button>
+                            . Our focus remains centered on{" "}
                             <button
                                 onMouseEnter={() => setActiveHighlight(1)}
                                 onClick={() => setActiveHighlight(1)}
-                                className={`inline-block font-bold px-1.5 py-0.5 rounded transition-all duration-200 border-b-2 cursor-pointer ${activeHighlight === 1
+                                className={`inline-block font-bold px-1.5 py-0.5 rounded-lm transition-all duration-200 border-b-2 cursor-pointer ${activeHighlight === 1
                                         ? "bg-[#f0fdf4] text-[#157327] border-[#157327]"
                                         : "text-[#0f2a4a] border-slate-300 hover:border-[#157327]"
                                     }`}
                             >
-                                setting national standards
+                                creating lasting value
                             </button>{" "}
-                            for legal & financial consulting, ensuring every client operates with{" "}
+                            for every client while{" "}
                             <button
                                 onMouseEnter={() => setActiveHighlight(2)}
                                 onClick={() => setActiveHighlight(2)}
-                                className={`inline-block font-bold px-1.5 py-0.5 rounded transition-all duration-200 border-b-2 cursor-pointer ${activeHighlight === 2
+                                className={`inline-block font-bold px-1.5 py-0.5 rounded-lm transition-all duration-200 border-b-2 cursor-pointer ${activeHighlight === 2
                                         ? "bg-[#fff5f0] text-[#f26522] border-[#f26522]"
                                         : "text-[#0f2a4a] border-slate-300 hover:border-[#f26522]"
                                     }`}
                             >
-                                100% regulatory compliance precision
+                                delivering integrated solutions
                             </button>
-                            .
+                            {" "}to build strong foundations.
                         </p>
 
                         {/* Quick Trigger Selector */}
@@ -164,7 +164,7 @@ export default function AboutSection() {
 
                     {/* RIGHT: DYNAMIC ARCHITECTURAL DISPLAY PANEL */}
                     <div className="lg:col-span-5">
-                        <div className="relative bg-white border border-slate-200/80 rounded-2xl p-5 sm:p-6 shadow-sm">
+                        <div className="relative bg-white border border-slate-200/80 rounded-lm p-5 sm:p-6 shadow-sm">
                             {/* Top Meta Indicator */}
                             <div className="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
                                 <div className="flex items-center gap-2">
@@ -194,7 +194,7 @@ export default function AboutSection() {
                                 {current.highlights.map((point, idx) => (
                                     <div
                                         key={idx}
-                                        className="flex items-center gap-2.5 p-2 rounded-lg bg-[#f8fafc] border border-slate-100"
+                                        className="flex items-center gap-2.5 p-2 rounded-lm bg-[#f8fafc] border border-slate-100"
                                     >
                                         <CheckCircle2
                                             className="w-3.5 h-3.5 shrink-0"

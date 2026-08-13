@@ -1,249 +1,227 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
+import React, { useState, useRef } from "react";
+import { motion, AnimatePresence, useInView } from "framer-motion";
 import {
-    Factory,
-    Cpu,
-    HeartPulse,
-    Building2,
-    ShoppingCart,
-    GraduationCap,
-    Truck,
-    Rocket,
-    Star,
-    ArrowLeft,
-    ArrowRight,
-    MessageCircle,
+  Rocket,
+  Factory,
+  ShoppingCart,
+  HeartPulse,
+  GraduationCap,
+  Building2,
+  Cpu,
+  Briefcase,
+  ArrowRight,
+  Sparkles,
+  CheckCircle2,
 } from "lucide-react";
 
 const EASE = [0.16, 1, 0.3, 1];
 
 const industries = [
-    { label: "Manufacturing", icon: Factory, color: "#F26522" },
-    { label: "IT & Tech", icon: Cpu, color: "#157327" },
-    { label: "Healthcare", icon: HeartPulse, color: "#DC2626" },
-    { label: "Real Estate", icon: Building2, color: "#7C3AED" },
-    { label: "E-commerce", icon: ShoppingCart, color: "#2563EB" },
-    { label: "Education", icon: GraduationCap, color: "#059669" },
-    { label: "Logistics", icon: Truck, color: "#D97706" },
-    { label: "Startups", icon: Rocket, color: "#EA580C" },
+  {
+    id: "01",
+    label: "Startups & Early-Stage Ventures",
+    icon: Rocket,
+    color: "#F26522",
+    tagline: "Accelerating execution, capital readiness, and legal foundations.",
+    points: ["Entity structuring", "Cap table setup", "Seed fundraising prep"],
+  },
+  {
+    id: "02",
+    label: "MSMEs & Manufacturers",
+    icon: Factory,
+    color: "#157327",
+    tagline: "Industrial compliance, government schemes, and plant operations.",
+    points: ["Factory licensing", "MSME registration", "Environmental approvals"],
+  },
+  {
+    id: "03",
+    label: "Retail, E-commerce, & Trading",
+    icon: ShoppingCart,
+    color: "#2563EB",
+    tagline: "Omnichannel scaling, logistics frameworks, and multi-state taxation.",
+    points: ["Multi-state GST", "Trademark protection", "Vendor agreements"],
+  },
+  {
+    id: "04",
+    label: "Healthcare & Life Sciences",
+    icon: HeartPulse,
+    color: "#DC2626",
+    tagline: "Clinical regulatory approvals, certifications, and compliance.",
+    points: ["CDSCO licensing", "Data privacy (HIPAA/DISHA)", "Lab accreditations"],
+  },
+  {
+    id: "05",
+    label: "Education & E-Learning",
+    icon: GraduationCap,
+    color: "#059669",
+    tagline: "Institutional governance, platform terms, and accreditation.",
+    points: ["Platform compliance", "IP protection", "Institutional approvals"],
+  },
+  {
+    id: "06",
+    label: "Construction & Real Estate",
+    icon: Building2,
+    color: "#7C3AED",
+    tagline: "RERA advisory, property approvals, and joint venture deals.",
+    points: ["RERA registration", "Title clearance", "Environmental clearances"],
+  },
+  {
+    id: "07",
+    label: "IT, Technology, & SaaS",
+    icon: Cpu,
+    color: "#0284C7",
+    tagline: "Cross-border structures, IP filings, and data security.",
+    points: ["SaaS legal agreements", "International tax setup", "Patent & IP strategy"],
+  },
+  {
+    id: "08",
+    label: "Professional Services & Hospitality",
+    icon: Briefcase,
+    color: "#D97706",
+    tagline: "Commercial licensing, operational safety, and brand expansion.",
+    points: ["FSSAI & trade licenses", "Service agreements", "Labor law compliance"],
+  },
 ];
 
-const cardBase =
-    "bg-white rounded-lg border border-slate-100 shadow-sm p-5 sm:p-7 transition-shadow duration-300 hover:shadow-xl flex flex-col justify-between";
+export default function SupportedIndustriesList() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const headerRef = useRef(null);
+  const isInView = useInView(headerRef, { once: true, margin: "-40px" });
 
-export default function BusinessCategories() {
-    return (
-        <section className="bg-[#F8FAFC] py-10 sm:py-16 px-4 sm:px-6 overflow-hidden">
-            <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, amount: 0.1 }}
-                transition={{ duration: 0.6, ease: EASE }}
-                className="max-w-[1220px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8"
-            >
-                {/* ══════════ LEFT CARD — Industries ══════════ */}
-                <motion.div
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.25, ease: EASE }}
-                    className={cardBase}
-                >
-                    <div>
-                        <div className="flex items-center gap-2 mb-1">
-                            <span className="text-[10px] sm:text-xs font-extrabold text-[#F26522] uppercase tracking-wider">
-                                Solutions For Every Industry
-                            </span>
-                        </div>
+  return (
+    <section className="bg-[#F8FAFC] py-12 sm:py-14 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
+        {/* CENTERED HEADER SECTION */}
+        <div className="flex flex-col items-center text-center max-w-2xl mx-auto mb-8 pb-6 border-b border-slate-200 space-y-3">
+          <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-orange-50 border border-orange-200 text-[10px] font-extrabold text-[#F26522] uppercase tracking-wider">
+            <Sparkles className="w-3 h-3" />
+            <span>Sectors We Empower</span>
+          </div>
 
-                        <h3 className="text-lg sm:text-xl font-extrabold text-[#0F2A4A] mb-1">
-                            Industry Focus
-                        </h3>
+          <div
+            ref={headerRef}
+            className={`text-center max-w-3xl mx-auto space-y-4 transition-all duration-700 delay-150 ease-out ${
+              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+            }`}
+          >
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0f2a4a] leading-tight tracking-tight transition-colors duration-300 hover:text-[#f26522]">
+              Industries & Categories We Support
+            </h2>
+          </div>
 
-                        <p className="text-xs sm:text-sm text-[#64748B] mb-4 sm:mb-5 leading-relaxed">
-                            We serve businesses of all sizes and sectors with tailored compliance and growth solutions.
-                        </p>
+          <p className="text-slate-600 text-xs sm:text-sm font-medium leading-relaxed max-w-lg">
+            Hover or tap any sector to explore specialized operational, legal, and growth capabilities tailored to your domain.
+          </p>
+        </div>
 
-                        {/* Responsive Grid: 2 columns on mobile for spaciousness, 4 columns on sm+ */}
-                        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3">
-                            {industries.map((item, i) => {
-                                const Icon = item.icon;
-                                return (
-                                    <motion.div
-                                        key={item.label}
-                                        initial={{ opacity: 0, scale: 0.95 }}
-                                        whileInView={{ opacity: 1, scale: 1 }}
-                                        viewport={{ once: true, amount: 0.2 }}
-                                        transition={{
-                                            duration: 0.3,
-                                            delay: i * 0.03,
-                                            ease: EASE,
-                                        }}
-                                        className="flex items-center gap-2 sm:flex-col sm:items-center sm:text-center p-2 sm:p-1 rounded-lg bg-slate-50/60 sm:bg-transparent border border-slate-100 sm:border-none"
-                                    >
-                                        <motion.div
-                                            whileHover={{ scale: 1.08 }}
-                                            whileTap={{ scale: 0.95 }}
-                                            transition={{ duration: 0.2, ease: EASE }}
-                                            className="w-9 h-9 sm:w-12 sm:h-12 rounded-lg flex items-center justify-center shrink-0 bg-white sm:bg-slate-50 border border-slate-100 shadow-2xs"
-                                        >
-                                            <Icon size={18} style={{ color: item.color }} strokeWidth={1.8} />
-                                        </motion.div>
-                                        <span className="text-xs sm:text-xs font-medium text-[#0F2A4A] leading-tight w-full truncate">
-                                            {item.label}
-                                        </span>
-                                    </motion.div>
-                                );
-                            })}
-                        </div>
+        {/* INTERACTIVE STACKED ROW LIST */}
+        <div className="divide-y divide-slate-200 border-y border-slate-200">
+          {industries.map((item, index) => {
+            const Icon = item.icon;
+            const isActive = activeIndex === index;
+
+            return (
+              <div
+                key={item.id}
+                onMouseEnter={() => setActiveIndex(index)}
+                onClick={() => setActiveIndex(index)}
+                className={`group cursor-pointer py-4 sm:py-5 transition-colors duration-300 ${
+                  isActive ? "bg-white/80" : "hover:bg-slate-100/50"
+                }`}
+              >
+                <div className="px-2 sm:px-4">
+                  {/* MAIN ROW BAR */}
+                  <div className="flex items-center justify-between gap-4">
+                    <div className="flex items-center gap-3 sm:gap-6">
+                      {/* Number */}
+                      <span
+                        className={`text-xs sm:text-sm font-extrabold transition-colors duration-300 ${
+                          isActive
+                            ? "text-[#F26522]"
+                            : "text-slate-400 group-hover:text-slate-600"
+                        }`}
+                      >
+                        {item.id}
+                      </span>
+
+                      {/* Icon */}
+                      <div
+                        className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+                          isActive
+                            ? "bg-slate-900 text-white shadow-md scale-105"
+                            : "bg-slate-100 text-slate-600 group-hover:bg-white group-hover:shadow-sm"
+                        }`}
+                      >
+                        <Icon
+                          size={16}
+                          style={{ color: isActive ? "#ffffff" : item.color }}
+                          strokeWidth={2}
+                        />
+                      </div>
+
+                      {/* Title */}
+                      <h3
+                        className={`text-sm sm:text-lg font-bold transition-colors duration-300 ${
+                          isActive
+                            ? "text-[#0F2A4A]"
+                            : "text-slate-700 group-hover:text-[#0F2A4A]"
+                        }`}
+                      >
+                        {item.label}
+                      </h3>
                     </div>
 
-                    <div className="text-center mt-5 pt-3 border-t border-slate-100">
-                        <Link
-                            href="/services"
-                            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0F2A4A] hover:text-[#F26522] transition-colors duration-300 group py-1"
-                        >
-                            <span>And Many More</span>
-                            <ArrowRight
-                                size={14}
-                                className="transition-transform duration-200 group-hover:translate-x-1"
-                            />
-                        </Link>
-                    </div>
-                </motion.div>
-
-                {/* ══════════ CENTER CARD — Testimonial ══════════ */}
-                <motion.div
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.25, ease: EASE }}
-                    className={cardBase}
-                >
-                    <div>
-                        <div className="flex items-center gap-2 mb-1">
-                            <span className="text-[10px] sm:text-xs font-extrabold text-[#157327] uppercase tracking-wider">
-                                Client Stories
-                            </span>
-                        </div>
-
-                        <h3 className="text-lg sm:text-xl font-extrabold text-[#0F2A4A] mb-3">
-                            Trusted By Growing Businesses
-                        </h3>
-
-                        <p className="text-xs sm:text-sm text-[#64748B] leading-relaxed italic mb-5">
-                            &ldquo;Aarambh helped us with our registration and funding in
-                            record time. Their team is professional, responsive, and truly
-                            invested in our growth.&rdquo;
-                        </p>
-                    </div>
-
-                    <div className="flex items-center justify-between gap-3 pt-4 border-t border-slate-100">
-                        <div className="flex items-center gap-2.5 min-w-0">
-                            <div className="w-10 h-10 rounded-full bg-[#0F2A4A] text-white flex items-center justify-center font-extrabold text-xs border border-slate-200 shrink-0 shadow-sm">
-                                RS
-                            </div>
-
-                            <div className="min-w-0">
-                                <p className="text-xs font-bold text-[#0F2A4A] leading-tight truncate m-0">
-                                    Rahul Sharma
-                                </p>
-                                <p className="text-[11px] text-[#64748B] leading-tight truncate m-0 mb-1">
-                                    CEO, TechNova Pvt. Ltd.
-                                </p>
-                                <div className="flex gap-0.5">
-                                    {Array.from({ length: 5 }).map((_, i) => (
-                                        <Star
-                                            key={i}
-                                            size={11}
-                                            fill="#F26522"
-                                            className="text-[#F26522]"
-                                        />
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className="flex gap-1.5 shrink-0">
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                transition={{ duration: 0.18, ease: EASE }}
-                                aria-label="Previous testimonial"
-                                className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#0F2A4A] hover:border-[#F26522] hover:text-[#F26522] transition-colors bg-white shadow-2xs cursor-pointer"
-                            >
-                                <ArrowLeft size={13} />
-                            </motion.button>
-                            <motion.button
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                transition={{ duration: 0.18, ease: EASE }}
-                                aria-label="Next testimonial"
-                                className="w-8 h-8 rounded-full border border-slate-200 flex items-center justify-center text-[#0F2A4A] hover:border-[#F26522] hover:text-[#F26522] transition-colors bg-white shadow-2xs cursor-pointer"
-                            >
-                                <ArrowRight size={13} />
-                            </motion.button>
-                        </div>
-                    </div>
-                </motion.div>
-
-                {/* ══════════ RIGHT CARD — CTA ══════════ */}
-                <motion.div
-                    whileHover={{ y: -4 }}
-                    transition={{ duration: 0.25, ease: EASE }}
-                    className="md:col-span-2 lg:col-span-1 rounded-lg p-5 sm:p-7 relative overflow-hidden flex flex-col justify-between min-h-[320px] sm:min-h-[360px] border border-slate-100 shadow-sm bg-white"
-                >
-                    {/* Background Image / Rocket Art */}
-                    <Image
-                        src="/images/rocket-bg.png"
-                        alt=""
-                        fill
-                        sizes="(max-width: 768px) 100vw, 420px"
-                        className="object-cover object-right pointer-events-none opacity-15 sm:opacity-90"
-                    />
-
-                    {/* Solid/Gradient Overlay for flawless text readability on mobile */}
+                    {/* Arrow Indicator */}
                     <div
-                        aria-hidden="true"
-                        className="absolute inset-0 bg-gradient-to-t from-white via-white/95 to-white/80 sm:bg-gradient-to-r sm:from-white sm:via-white/90 sm:to-transparent pointer-events-none"
-                    />
-
-                    {/* Content */}
-                    <div className="relative z-10 max-w-full sm:max-w-[65%]">
-                        <span className="inline-block px-3 py-1 rounded-full bg-[#F26522]/10 text-[#F26522] text-[10px] sm:text-xs font-extrabold uppercase tracking-wider mb-2.5">
-                            Take The Next Step
-                        </span>
-                        <h3 className="text-[#0F2A4A] font-black text-lg sm:text-2xl leading-snug mb-2">
-                            Ready to Scale Your Business?
-                        </h3>
-                        <p className="text-[#475569] text-xs sm:text-sm leading-relaxed mb-5 font-medium">
-                            Book a free consultation with our experts and start your journey towards growth.
-                        </p>
+                      className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${
+                        isActive
+                          ? "bg-[#F26522] text-white rotate-0"
+                          : "bg-slate-100 text-slate-400 -rotate-45 group-hover:bg-slate-200 group-hover:text-slate-700"
+                      }`}
+                    >
+                      <ArrowRight size={14} />
                     </div>
+                  </div>
 
-                    {/* Action buttons */}
-                    <div className="relative z-10 flex flex-col gap-2.5">
-                        <Link
-                            href="/contact"
-                            className="group inline-flex items-center justify-between bg-[#F26522] text-white px-4 sm:px-5 py-3 rounded-lg text-xs sm:text-sm font-bold shadow-md transition-all duration-300 hover:bg-[#e05412]"
-                        >
-                            <span>Get Free Consultation</span>
-                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1 shrink-0">
-                                <ArrowRight className="w-3 h-3 text-white" />
-                            </div>
-                        </Link>
+                  {/* EXPANDABLE DETAILS AREA */}
+                  <AnimatePresence initial={false}>
+                    {isActive && (
+                      <motion.div
+                        initial={{ opacity: 0, height: 0 }}
+                        animate={{ opacity: 1, height: "auto" }}
+                        exit={{ opacity: 0, height: 0 }}
+                        transition={{ duration: 0.35, ease: EASE }}
+                        className="overflow-hidden"
+                      >
+                        <div className="pt-4 sm:pt-5 pl-8 sm:pl-20 pr-4">
+                          <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-3 max-w-2xl">
+                            {item.tagline}
+                          </p>
 
-                        <a
-                            href="https://wa.me/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="group inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-50 text-[#0F2A4A] px-4 sm:px-5 py-3 rounded-lg text-xs sm:text-sm font-bold border border-slate-200 shadow-2xs transition-all duration-300"
-                        >
-                            <MessageCircle size={16} className="text-[#25D366] fill-[#25D366]" />
-                            <span>Chat on WhatsApp</span>
-                        </a>
-                    </div>
-                </motion.div>
-            </motion.div>
-        </section>
-    );
+                          {/* Bullet Points Row */}
+                          <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-1">
+                            {item.points.map((point) => (
+                              <span
+                                key={point}
+                                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-md bg-slate-100 border border-slate-200/80 text-[11px] font-semibold text-[#0F2A4A]"
+                              >
+                                <CheckCircle2 size={11} className="text-[#F26522]" />
+                                {point}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
 }
