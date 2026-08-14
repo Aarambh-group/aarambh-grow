@@ -191,13 +191,13 @@ export default function Navbar() {
                     <motion.a
                         whileHover={{ scale: 1.02 }}
                         whileTap={{ scale: 0.98 }}
-                        href="tel:+918511323120"
+                        href="tel:+919998715799"
                         className="group flex items-center gap-2 text-[13px] font-semibold text-[#03254C] hover:text-[#F26522] transition-colors"
                     >
                         <span className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-50 text-[#03254C] transition-all duration-300 group-hover:bg-[#F26522] group-hover:text-white group-hover:shadow-xs">
                             <Phone className="h-3.5 w-3.5 transition-transform duration-300 group-hover:rotate-12" />
                         </span>
-                        +91 85113 23120
+                        +91 9998715799
                     </motion.a>
 
                     <motion.div
@@ -262,13 +262,13 @@ export default function Navbar() {
 
                         <div className="mt-4 flex flex-col gap-2.5 pt-2 border-t border-slate-100">
                             <a
-                                href="tel:+918511323120"
+                                href="tel:+919998715799"
                                 className="flex items-center gap-2 py-1.5 text-[13px] font-semibold text-[#03254C] hover:text-[#F26522] transition-colors"
                             >
                                 <span className="flex h-7 w-7 items-center justify-center rounded-full bg-[#F26522]/10 text-[#F26522]">
                                     <Phone className="h-3.5 w-3.5" />
                                 </span>
-                                +91 8511323120
+                                +91 9998715799
                             </a>
 
                             <motion.div whileTap={{ scale: 0.98 }}>

@@ -12,19 +12,19 @@ import {
 } from "lucide-react";
 
 const quickLinks = [
-  { label: "Home", href: "#" },
-  { label: "About Us", href: "#about" },
-  { label: "Services", href: "#services" },
-  { label: "Contact Us", href: "#contact" },
+  { label: "Home", href: "/" },
+  { label: "About Us", href: "/about" },
+  { label: "Services", href: "/services" },
+  { label: "Contact Us", href: "/contact" },
 ];
 
 const serviceLinks = [
-  { label: "Business Registration", href: "#" },
-  { label: "Certification Services", href: "#" },
-  { label: "Financial Assistance", href: "#" },
-  { label: "Government Schemes", href: "#" },
-  { label: "Digital Solutions", href: "#" },
-  { label: "Compliance Services", href: "#" },
+  { label: "Business Registration", href: "/services" },
+  { label: "Certification Services", href: "/services" },
+  { label: "Financial Assistance", href: "/services" },
+  { label: "Government Schemes", href: "/services" },
+  { label: "Digital Solutions", href: "/services" },
+  { label: "Compliance Services", href: "/services" },
 ];
 
 const socialLinks = [
@@ -120,17 +120,10 @@ export default function Footer() {
                 </p>
                 <div className="text-xs font-semibold text-white flex items-center gap-2 mt-0.5">
                   <a
-                    href="tel:+918511323120"
+                    href="tel:+919998715799"
                     className="hover:text-[#F97316] transition-colors duration-200"
                   >
-                    +91 85113 23120
-                  </a>
-                  <span className="text-slate-600">|</span>
-                  <a
-                    href="tel:+918511731120"
-                    className="hover:text-[#F97316] transition-colors duration-200"
-                  >
-                    +91 85117 31120
+                    +91 9998715799
                   </a>
                 </div>
               </div>
@@ -153,10 +146,10 @@ export default function Footer() {
                   Official Correspondence
                 </p>
                 <a
-                  href="mailto:info@aarambhgrow.co.in"
+                  href="mailto:aarambhgrow@gmail.com"
                   className="text-xs font-semibold text-white hover:text-[#1F8A4D] transition-colors duration-200 mt-0.5 block"
                 >
-                  info@aarambhgrow.co.in
+                  aarambhgrow@gmail.com
                 </a>
               </div>
             </motion.div>
@@ -278,21 +271,29 @@ export default function Footer() {
               className="bg-white/5 border border-white/10 rounded-md p-4 space-y-3.5 hover:border-white/20 transition-all duration-300 hover:shadow-lg"
             >
               <p className="text-xs text-slate-300 leading-relaxed">
-                G-902, Titanium City Center, Nr. Sachin Tower, Satellite, Ahmedabad – 380015, Gujarat, India
+                813, Silver Rediance-4, Gota, Jagatpur Road, Gota SG Highway, Gujarat 382470
               </p>
 
               <motion.a
                 whileHover={{ scale: 1.01 }}
                 whileTap={{ scale: 0.98 }}
-                href="https://maps.google.com/?q=G-902,Titanium+City+Center,Nr.Sachin+Tower,Satellite,Ahmedabad–380015"
+                href="https://www.google.com/maps/dir/?api=1&destination=813%2C%20Silver%20Rediance-4%2C%20Gota%2C%20Jagatpur%20Road%2C%20Gota%20SG%20Highway%2C%20Gujarat%20382470"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group/btn inline-flex items-center justify-between w-full bg-white/10 hover:bg-[#F97316] text-white text-xs font-medium px-3.5 py-2 rounded-md border border-white/10 hover:border-[#F97316] transition-all duration-300 shadow-sm"
               >
                 <span className="flex items-center gap-2">
-                  <MapPin size={13} className="transition-transform duration-300 group-hover/btn:scale-110" /> Open Location Map
+                  <MapPin
+                    size={13}
+                    className="transition-transform duration-300 group-hover/btn:scale-110"
+                  />
+                  Open Location Map
                 </span>
-                <ArrowUpRight size={13} className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5" />
+
+                <ArrowUpRight
+                  size={13}
+                  className="transition-transform duration-300 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5"
+                />
               </motion.a>
             </motion.div>
           </motion.div>

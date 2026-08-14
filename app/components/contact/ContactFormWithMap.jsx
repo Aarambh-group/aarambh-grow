@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Lock, ArrowRight } from "lucide-react";
 
+
 export default function ContactFormWithMap() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -13,9 +14,46 @@ export default function ContactFormWithMap() {
     message: "",
   });
 
-  const handleSubmit = (e) => {
+  const [loading, setLoading] = useState(false);
+  const [status, setStatus] = useState("");
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Submitted:", formData);
+
+    setLoading(true);
+    setStatus("");
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        setStatus("success");
+
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        setStatus("error");
+        console.error(result);
+      }
+    } catch (error) {
+      console.error("Submit error:", error);
+      setStatus("error");
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Animation Variants
@@ -152,9 +190,10 @@ export default function ContactFormWithMap() {
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                   type="submit"
-                  className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#F26522] hover:bg-[#d85416] text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer"
+                  disabled={loading}
+                  className="w-full sm:w-auto px-6 py-3 rounded-lg bg-[#F26522] hover:bg-[#d85416] disabled:opacity-60 disabled:cursor-not-allowed text-white text-xs font-bold transition-colors flex items-center justify-center gap-2 shadow-sm cursor-pointer"
                 >
-                  <span>Send Message</span>
+                  <span>{loading ? "Sending..." : "Send Message"}</span>
                   <ArrowRight className="w-4 h-4" />
                 </motion.button>
 
@@ -163,6 +202,17 @@ export default function ContactFormWithMap() {
                   <span>We respect your privacy</span>
                 </div>
               </motion.div>
+              {status === "success" && (
+                <p className="text-sm font-semibold text-green-600">
+                  Your message has been sent successfully. We will contact you soon.
+                </p>
+              )}
+
+              {status === "error" && (
+                <p className="text-sm font-semibold text-red-600">
+                  Something went wrong. Please try again.
+                </p>
+              )}
             </form>
           </div>
 
@@ -174,7 +224,7 @@ export default function ContactFormWithMap() {
             {/* Map Iframe */}
             <iframe
               title="Aarambh Grow Group of Companies Location Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3671.972322303036!2d72.5258!3d23.0247!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395e84f227a92ddf%3A0x6b4c92b2344efdb3!2sTitanium%20City%20Center!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+              src="https://www.google.com/maps?q=813%2C%20Silver%20Rediance-4%2C%20Gota%2C%20Jagatpur%20Road%2C%20Gota%20SG%20Highway%2C%20Gujarat%20382470&output=embed"
               className="w-full h-full border-0 absolute inset-0 opacity-80 invert brightness-90 contrast-125"
               loading="lazy"
             />
@@ -190,11 +240,10 @@ export default function ContactFormWithMap() {
                 Aarambh Grow Group of Companies
               </h4>
               <p className="text-[11px] text-slate-600 leading-snug">
-                A-101, Titanium City Center, Nr. Sachin Tower, 100ft Road,
-                Prahladnagar, Ahmedabad, Gujarat 380015
+                813, Silver Rediance-4, Gota, Jagatpur Road, Gota SG Highway, Gujarat 382470
               </p>
               <a
-                href="https://maps.google.com"
+                href="https://www.google.com/maps/dir/?api=1&destination=813%2C%20Silver%20Rediance-4%2C%20Gota%2C%20Jagatpur%20Road%2C%20Gota%20SG%20Highway%2C%20Gujarat%20382470"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 text-[11px] font-bold text-[#F26522] hover:underline pt-1"
@@ -206,7 +255,7 @@ export default function ContactFormWithMap() {
           </motion.div>
 
         </motion.div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 }

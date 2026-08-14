@@ -22,16 +22,6 @@ export default function ServicesSection() {
   const headerRef = useRef(null);
   const isInView = useInView(headerRef, { once: true, margin: "-40px" });
 
-  const filterTabs = [
-    { name: "All" },
-    { name: "Registration" },
-    { name: "Finance" },
-    { name: "Certification" },
-    { name: "Branding" },
-    { name: "Operations" },
-    { name: "Legal & CA" },
-  ];
-
   const avatars = [
     "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80",
     "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&auto=format&fit=crop&q=80",
@@ -116,36 +106,6 @@ export default function ServicesSection() {
           </p>
         </motion.div>
 
-        {/* Filter Navigation Tabs */}
-        <motion.div variants={fadeUpVariants} className="mb-8 sm:mb-10 w-full">
-          <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2.5">
-            {filterTabs.map((tab) => {
-              const isActive = activeTab === tab.name;
-
-              return (
-                <button
-                  key={tab.name}
-                  onClick={() => setActiveTab(tab.name)}
-                  className={`relative flex items-center justify-center px-3.5 sm:px-5 py-2 rounded-full text-xs font-bold transition-all duration-300 ${
-                    isActive
-                      ? "text-white"
-                      : "text-slate-600 bg-white border border-slate-200/80 hover:bg-slate-50"
-                  }`}
-                >
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeFilterTab"
-                      className="absolute inset-0 rounded-full bg-[#f26522] shadow-md shadow-[#f26522]/30"
-                      transition={{ type: "spring", stiffness: 400, damping: 30 }}
-                    />
-                  )}
-                  <span className="relative z-10">{tab.name}</span>
-                </button>
-              );
-            })}
-          </div>
-        </motion.div>
-
         {/* Responsive Bento Grid */}
         <motion.div layout className="space-y-4 sm:space-y-6">
           <AnimatePresence mode="popLayout">
@@ -201,7 +161,7 @@ export default function ServicesSection() {
                         </div>
 
                         <div className="hidden sm:inline-flex items-center gap-2 text-xs font-bold text-[#0f2a4a] group-hover:text-[#f26522] transition-colors duration-300 mt-2">
-                          <span>Explore Service</span>
+                          <span>Learn More</span>
                           <div className="w-5 h-5 rounded-full bg-[#f26522] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                             <ArrowRight className="w-3 h-3" />
                           </div>
@@ -222,7 +182,7 @@ export default function ServicesSection() {
 
                       {/* Mobile Bottom Action */}
                       <div className="flex sm:hidden items-center gap-2 text-xs font-bold text-[#0f2a4a] group-hover:text-[#f26522] transition-colors duration-300 order-3 pt-1">
-                        <span>Explore Service</span>
+                        <span>Learn More</span>
                         <div className="w-5 h-5 rounded-full bg-[#f26522] text-white flex items-center justify-center">
                           <ArrowRight className="w-3 h-3" />
                         </div>
@@ -267,7 +227,7 @@ export default function ServicesSection() {
                     </div>
 
                     <div className="inline-flex items-center gap-2 text-xs font-bold text-[#0f2a4a] group-hover:text-[#157327] transition-colors duration-300 mt-auto">
-                      <span>Explore Service</span>
+                      <span>Learn More</span>
                       <div className="w-5 h-5 rounded-full bg-[#157327] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                         <ArrowRight className="w-3 h-3" />
                       </div>
@@ -311,7 +271,7 @@ export default function ServicesSection() {
                     </div>
 
                     <div className="inline-flex items-center gap-2 text-xs font-bold text-[#0f2a4a] group-hover:text-[#f26522] transition-colors duration-300 mt-auto">
-                      <span>Explore Service</span>
+                      <span>Learn More</span>
                       <div className="w-5 h-5 rounded-full bg-[#f26522] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                         <ArrowRight className="w-3 h-3" />
                       </div>
@@ -366,7 +326,7 @@ export default function ServicesSection() {
                     </div>
 
                     <div className="mt-auto inline-flex items-center gap-2 text-xs font-bold text-[#0f2a4a] group-hover:text-[#157327] transition-colors duration-300">
-                      <span>Explore Service</span>
+                      <span>Learn More</span>
                       <div className="w-5 h-5 rounded-full bg-[#157327] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                         <ArrowRight className="w-2.5 h-2.5" />
                       </div>
@@ -410,7 +370,7 @@ export default function ServicesSection() {
                     </div>
 
                     <div className="mt-auto inline-flex items-center gap-2 text-xs font-bold text-[#0f2a4a] group-hover:text-[#f26522] transition-colors duration-300">
-                      <span>Explore Service</span>
+                      <span>Learn More</span>
                       <div className="w-5 h-5 rounded-full bg-[#f26522] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                         <ArrowRight className="w-2.5 h-2.5" />
                       </div>
@@ -454,7 +414,7 @@ export default function ServicesSection() {
                     </div>
 
                     <div className="mt-auto inline-flex items-center gap-2 text-xs font-bold text-[#0f2a4a] group-hover:text-[#157327] transition-colors duration-300">
-                      <span>Explore Service</span>
+                      <span>Learn More</span>
                       <div className="w-5 h-5 rounded-full bg-[#157327] text-white flex items-center justify-center transition-transform duration-300 group-hover:translate-x-1">
                         <ArrowRight className="w-2.5 h-2.5" />
                       </div>
