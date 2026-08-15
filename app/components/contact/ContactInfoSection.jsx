@@ -80,7 +80,7 @@ export default function ContactMainSection() {
 
               {/* Email Card */}
               <a
-                href="mailto:aarambhgrow@gmail.com"
+                href="mailto:info@aarambhgrow.group"
                 className="group relative bg-[#f8fafc] hover:bg-white p-3.5 rounded-lg border border-slate-200/80 hover:border-[#F26522] hover:shadow-md transition-all duration-200 flex flex-col justify-between"
               >
                 <div className="flex items-center justify-between">
@@ -94,7 +94,7 @@ export default function ContactMainSection() {
                     Official Email
                   </span>
                   <p className="text-xs font-bold text-[#03254C] group-hover:text-[#F26522] transition-colors mt-0.5 truncate">
-                    aarambhgrow@gmail.com
+                    info@aarambhgrow.group
                   </p>
                 </div>
               </a>

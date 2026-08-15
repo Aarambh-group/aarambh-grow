@@ -146,10 +146,10 @@ export default function Footer() {
                   Official Correspondence
                 </p>
                 <a
-                  href="mailto:aarambhgrow@gmail.com"
+                  href="mailto:info@aarambhgrow.group"
                   className="text-xs font-semibold text-white hover:text-[#1F8A4D] transition-colors duration-200 mt-0.5 block"
                 >
-                  aarambhgrow@gmail.com
+                  info@aarambhgrow.group
                 </a>
               </div>
             </motion.div>
