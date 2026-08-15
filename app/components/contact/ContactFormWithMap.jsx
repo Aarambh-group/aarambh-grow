@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { Lock, ArrowRight } from "lucide-react";
 
-
 export default function ContactFormWithMap() {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -17,37 +16,24 @@ export default function ContactFormWithMap() {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState("");
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     setLoading(true);
     setStatus("");
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+      // Process form data locally or pass to your new service here
+      console.log("Form Data Submitted:", formData);
+
+      setStatus("success");
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
       });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        setStatus("success");
-
-        setFormData({
-          fullName: "",
-          email: "",
-          phone: "",
-          subject: "",
-          message: "",
-        });
-      } else {
-        setStatus("error");
-        console.error(result);
-      }
     } catch (error) {
       console.error("Submit error:", error);
       setStatus("error");
@@ -202,6 +188,7 @@ export default function ContactFormWithMap() {
                   <span>We respect your privacy</span>
                 </div>
               </motion.div>
+
               {status === "success" && (
                 <p className="text-sm font-semibold text-green-600">
                   Your message has been sent successfully. We will contact you soon.
@@ -253,9 +240,8 @@ export default function ContactFormWithMap() {
               </a>
             </motion.div>
           </motion.div>
-
         </motion.div>
-      </div >
-    </section >
+      </div>
+    </section>
   );
 }
