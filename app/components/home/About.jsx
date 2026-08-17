@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Star, ArrowRight } from "lucide-react";
 
-export default function About() {
+export default function HomeAboutTeaser() {
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {

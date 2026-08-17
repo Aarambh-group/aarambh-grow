@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
 import {
     ArrowRight,
     CheckCircle2,
@@ -14,12 +15,6 @@ const HIGHLIGHTS = [
     "No obligation consultation",
     "Tailored advisory roadmap",
     "100% data privacy assured",
-];
-
-const METRICS = [
-    { value: "99.8%", label: "Filing Accuracy Rate", color: "text-[#0f2a4a]" },
-    { value: "24 Hours", label: "Average Initial Response", color: "text-[#f26522]" },
-    { value: "100%", label: "Transparent Pricing", color: "text-[#157327]" },
 ];
 
 const containerVariants = {
@@ -41,6 +36,16 @@ const cardVariants = {
 };
 
 export default function CTASection() {
+    const router = useRouter();
+
+    const handleBookConsultation = () => {
+        router.push("/contact");
+    };
+
+    const handleTalkToExpert = () => {
+        window.location.href = "tel:+919876543210";
+    };
+
     return (
         <section className="relative w-full bg-[#f8fafc] py-6 sm:py-8 font-sans select-none overflow-hidden text-[#0f172a]">
             {/* Background Glows */}
@@ -111,6 +116,7 @@ export default function CTASection() {
                                     whileHover={{ scale: 1.01 }}
                                     whileTap={{ scale: 0.98 }}
                                     type="button"
+                                    onClick={handleBookConsultation}
                                     className="w-full group relative inline-flex items-center justify-center gap-2 rounded-lg bg-[#0f2a4a] hover:bg-[#f26522] px-4 py-2.5 text-[11px] font-black uppercase tracking-wider text-white shadow-md shadow-[#0f2a4a]/20 hover:shadow-[#f26522]/30 transition-colors duration-300 cursor-pointer"
                                 >
                                     <Calendar className="w-3.5 h-3.5" />
@@ -122,6 +128,7 @@ export default function CTASection() {
                                     whileHover={{ scale: 1.01 }}
                                     whileTap={{ scale: 0.98 }}
                                     type="button"
+                                    onClick={handleTalkToExpert}
                                     className="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-white hover:bg-slate-50 border border-slate-200/80 px-4 py-2 text-[11px] font-extrabold text-[#0f2a4a] shadow-2xs transition-colors duration-200 cursor-pointer"
                                 >
                                     <PhoneCall className="w-3.5 h-3.5 text-[#157327]" />

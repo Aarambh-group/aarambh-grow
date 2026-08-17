@@ -102,9 +102,8 @@ export default function SupportedIndustriesList() {
 
           <div
             ref={headerRef}
-            className={`text-center max-w-3xl mx-auto space-y-4 transition-all duration-700 delay-150 ease-out ${
-              isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
-            }`}
+            className={`text-center max-w-3xl mx-auto space-y-4 transition-all duration-700 delay-150 ease-out ${isInView ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6"
+              }`}
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0f2a4a] leading-tight tracking-tight transition-colors duration-300 hover:text-[#f26522]">
               Industries & Categories We Support
@@ -127,9 +126,8 @@ export default function SupportedIndustriesList() {
                 key={item.id}
                 onMouseEnter={() => setActiveIndex(index)}
                 onClick={() => setActiveIndex(index)}
-                className={`group cursor-pointer py-4 sm:py-5 transition-colors duration-300 ${
-                  isActive ? "bg-white/80" : "hover:bg-slate-100/50"
-                }`}
+                className={`group cursor-pointer py-4 sm:py-5 transition-colors duration-300 ${isActive ? "bg-white/80" : "hover:bg-slate-100/50"
+                  }`}
               >
                 <div className="px-2 sm:px-4">
                   {/* MAIN ROW BAR */}
@@ -137,22 +135,20 @@ export default function SupportedIndustriesList() {
                     <div className="flex items-center gap-3 sm:gap-6">
                       {/* Number */}
                       <span
-                        className={`text-xs sm:text-sm font-extrabold transition-colors duration-300 ${
-                          isActive
+                        className={`text-xs sm:text-sm font-extrabold transition-colors duration-300 ${isActive
                             ? "text-[#F26522]"
                             : "text-slate-400 group-hover:text-slate-600"
-                        }`}
+                          }`}
                       >
                         {item.id}
                       </span>
 
                       {/* Icon */}
                       <div
-                        className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
-                          isActive
+                        className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isActive
                             ? "bg-slate-900 text-white shadow-md scale-105"
                             : "bg-slate-100 text-slate-600 group-hover:bg-white group-hover:shadow-sm"
-                        }`}
+                          }`}
                       >
                         <Icon
                           size={16}
@@ -163,25 +159,13 @@ export default function SupportedIndustriesList() {
 
                       {/* Title */}
                       <h3
-                        className={`text-sm sm:text-lg font-bold transition-colors duration-300 ${
-                          isActive
+                        className={`text-sm sm:text-lg font-bold transition-colors duration-300 ${isActive
                             ? "text-[#0F2A4A]"
                             : "text-slate-700 group-hover:text-[#0F2A4A]"
-                        }`}
+                          }`}
                       >
                         {item.label}
                       </h3>
-                    </div>
-
-                    {/* Arrow Indicator */}
-                    <div
-                      className={`w-7 h-7 rounded-full flex items-center justify-center transition-all duration-300 ${
-                        isActive
-                          ? "bg-[#F26522] text-white rotate-0"
-                          : "bg-slate-100 text-slate-400 -rotate-45 group-hover:bg-slate-200 group-hover:text-slate-700"
-                      }`}
-                    >
-                      <ArrowRight size={14} />
                     </div>
                   </div>
 

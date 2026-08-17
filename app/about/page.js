@@ -3,7 +3,8 @@ import Hero from "../components/about/Hero";
 import About from "../components/about/About";
 import ValueOutcomes from "../components/about/ValueOutcomes";
 import CorePillars from "../components/about/CorePillars";
-import WhyTrustUs from "../components/about/WhyTrustUs"; // Enabled to replace duplicate process
+import WhyTrustUs from "../components/about/WhyTrustUs";
+import FAQ from "../components/services/FAQ";
 import CTASection from "../components/layout/CTA";
 import Footer from "../components/layout/Footer";
 
@@ -11,12 +12,14 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
+
       <main className="min-h-screen">
         <Hero />
         <About />
         <ValueOutcomes />
         <CorePillars />
         <WhyTrustUs />
+        <FAQ />
         <CTASection />
       </main>
       <Footer />

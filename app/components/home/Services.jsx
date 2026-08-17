@@ -15,6 +15,8 @@ import {
   Settings,
   Scale,
   ArrowUpRight,
+  IndianRupee,
+  IndianRupeeIcon,
 } from "lucide-react";
 
 export default function ServicesSection() {
@@ -89,11 +91,10 @@ export default function ServicesSection() {
 
           <div
             ref={headerRef}
-            className={`text-center max-w-3xl mx-auto space-y-4 transition-all duration-700 delay-150 ease-out ${
-              isInView
+            className={`text-center max-w-3xl mx-auto space-y-4 transition-all duration-700 delay-150 ease-out ${isInView
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-6"
-            }`}
+              }`}
           >
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#0f2a4a] leading-tight tracking-tight transition-colors duration-300 hover:text-[#f26522]">
               Business Solutions Designed <br className="hidden sm:inline" />
@@ -201,7 +202,7 @@ export default function ServicesSection() {
                   >
                     <div>
                       <div className="flex items-center gap-2 mb-2">
-                        <DollarSign className="w-4 h-4 text-[#157327] shrink-0" />
+                        <IndianRupee className="w-4 h-4 text-[#157327] shrink-0" />
                         <span className="text-xs font-extrabold text-[#157327]">
                           02 —
                         </span>
@@ -448,12 +449,13 @@ export default function ServicesSection() {
           <div className="flex flex-col sm:flex-row items-center gap-4 w-full md:w-auto">
             <Link
               href="/contact"
-              className="group w-full sm:w-auto text-center inline-flex items-center justify-center gap-2.5 bg-[#F26522] text-white px-6 py-3.5 rounded-full text-xs font-bold shadow-md shadow-[#F26522]/20 transition-all duration-300 hover:bg-[#e05412] active:scale-95"
+              className="group relative flex items-center gap-1 overflow-hidden rounded-full border border-[#F26522] bg-[#F26522] px-4 py-1.5 text-xs font-semibold text-white shadow-xs hover:shadow-md transition-all duration-300 ease-out hover:text-[#03254C]"
             >
-              <span>Get Free Consultation</span>
-              <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
-                <ArrowUpRight className="w-3 h-3 text-white" />
-              </div>
+              <span className="absolute inset-0 z-0 translate-y-full bg-white transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:translate-y-0" />
+              <span className="relative z-10 flex items-center gap-1">
+                Get Free Consultation
+                <ArrowUpRight className="h-5 w-3.5 transition-transform duration-300 ease-out group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-white group-hover:text-[#157327]" />
+              </span>
             </Link>
 
             <div className="hidden lg:flex items-center gap-2 shrink-0">

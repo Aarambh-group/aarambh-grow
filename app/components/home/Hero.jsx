@@ -5,7 +5,7 @@ import { ArrowRight, Building2, TrendingUp, Globe2, ShieldCheck, ArrowUpRight } 
 
 export default function Hero() {
   return (
-    <section className="relative min-h-[calc(100dvh-4rem)] lg:h-[calc(100dvh-4rem)] w-full flex flex-col justify-between bg-gradient-to-b from-slate-50/60 via-white to-slate-50/30 overflow-x-hidden font-sans select-none">
+    <section className="relative min-h-[calc(100dvh-4rem)] lg:h-[calc(100dvh-4rem)] w-full flex flex-col justify-between bg-gradient-to-b from-slate-50/60 via-white to-slate-50/30 font-sans select-none">
 
       {/* Custom Animations for Hero Content */}
       <style jsx global>{`
